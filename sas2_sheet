@@ -1,0 +1,106 @@
+# Final Project SAS 2: Election and Electoral Roll Management in Morocco
+
+## Introduction
+
+Build an application to manage an election campaign. The application will manage candidate lists, record votes, and display detailed statistics about the election.
+
+## Project Context
+
+The application must have a main menu allowing the following operations:
+
+### 1. Add a new candidate
+
+A candidate is defined by a unique identifier (e.g. national ID / CIN), a last name, a first name, a political party (or `"Independent"`), their age, and a list of the national IDs of the people who voted for them (voters) (array initially empty).
+
+```javascript
+const candidates = [{
+	cin: "AB123456",
+	lastName: "Boushaba",
+	firstName: "Soufiane",
+	politicalParty: "Independent",
+	age: 40,
+	voters: []
+}];
+```
+
+### 2. Add several candidates at once
+
+### 3. Display the list of candidates
+
+Display full details (ID, last name, first name, political party, age, number of votes (calculated from the list of voters' national IDs)) according to several views:
+
+- Sort candidates by number of votes (descending order, to see the winners).
+- Filter and display only the candidates from a specific political party.
+
+```
+# Candidate 1:
+CIN: AB12345
+Name: Alae
+-------------
+# Candidate 2:
+CIN: AB12345
+Name: Alae
+-------------
+```
+
+### 4. Vote for a candidate
+
+- Ask the voter to enter their own national ID.
+- Check whether the voter is allowed to vote (i.e. whether their national ID does not already appear in any candidate's list of voters).
+- Ask for the candidate's ID or national ID, then add the voter's national ID to that candidate's list of voters.
+
+If the voter's national ID already exists in a list of voters, display the message:
+
+> "You have already voted and you are not allowed to change your vote or vote again."
+
+### 5. Edit a candidate's information
+
+- Change a candidate's political party.
+- Change a candidate's age.
+
+### 6. Delete a candidate
+
+- Remove a candidate from the list by their national ID (e.g. withdrawal of candidacy).
+
+### 7. Search for candidates
+
+- Search for a candidate by their last name.
+
+### 8. Election statistics
+
+- Display the total number of candidates.
+- Display the total number of votes cast in the entire election.
+- Display the Top 3 candidates with the most votes.
+- Display the number of candidates per political party.
+
+**N.B.:** The user must return to the main menu after each operation.
+
+---
+
+## Technical Requirements
+
+The project must be built in **JavaScript with Node.js**.
+
+The concepts primarily expected are:
+
+- variables and constants;
+- operators;
+- if / else;
+- switch;
+- for;
+- while;
+- functions;
+- arrays;
+- objects;
+- arrays of objects;
+- string manipulation.
+
+The following JavaScript methods may be used, notably:
+
+- `push()`
+- `splice()`
+- `find()`
+- `findIndex()`
+- `includes()`
+- `filter()`
+- `map()`
