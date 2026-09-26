@@ -68,3 +68,15 @@ for (let i = 0 ; i < candidates.length ; i++){
   }
 }
 pickPoliticalParty(candidates)
+//Vote for a candidate
+function voteForACandidate(){
+let promptVoteForACandidate = prompt("Enter your cin :")
+for (let i = 0 ; i < candidates.length ; i++){
+  for (let j = 0 ; j < candidates[i].voters.length ; j++){
+    if ( promptVoteForACandidate === candidates[i].voters[j]){
+      console.log("You have already voted and you are not allowed to change your vote or vote again.")
+    }
+  }
+}
+}
+voteForACandidate(candidates)
