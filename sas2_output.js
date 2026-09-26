@@ -1,5 +1,3 @@
-console.log("Candidates: ")
-//add several candidates
 const candidates = [
   { cin: "AB123456", lastName: "Boushaba", firstName: "Soufiane", politicalParty: "Independent", age: 40,
     voters: [] },
@@ -22,18 +20,34 @@ const candidates = [
   { cin: "ST012345", lastName: "Fassi", firstName: "Khadija", politicalParty: "PAM", age: 31,
     voters: [] },
 ];
-//console.log(candidates)
+//add a candidate
+
 function candidateAdd(cin, lastName, firstName, politicalParty, age, voters){
 	candidates.push({cin: cin , lastName: lastName, firstName: firstName, politicalParty: politicalParty, age: age, voters: voters})
 }
 
-let cinData = prompt("Please enter your cin: ");
-let lastNameData = prompt("Please enter your last name: ");
-let firstNameData = prompt("Please enter your first name: ");
-let politicalPartyData = prompt("Please enter your political party: ");
-let yearOfBirthData = parseInt(prompt("Please enter your year of birth: "));
+function promptAdd(){
+let cinData = prompt("Enter your cin: ");
+let lastNameData = prompt("Enter your last name: ");
+let firstNameData = prompt("Enter your first name: ");
+let politicalPartyData = prompt("Enter your political party: ");
+let yearOfBirthData = parseInt(prompt("Enter your year of birth: "));
 let ageData = 2026 - yearOfBirthData
 let votes = []
 
-candidateAdd(cinData, lastNameData, firstNameData, politicalPartyData, ageData, votes)
+  candidateAdd(cinData, lastNameData, firstNameData, politicalPartyData, ageData, votes);
+}
+
+promptAdd()
+console.log(candidates);
+//Add several candidates
+function addSeveralCandidates(){
+  let promptSeveralAdd = prompt("Enter the number of candidates you want to add: ")
+  let i = 1
+  while (i <= promptSeveralAdd){
+    promptAdd()
+    i++
+  }
+}
+addSeveralCandidates()
 console.log(candidates)
