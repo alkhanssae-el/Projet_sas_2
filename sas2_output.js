@@ -42,7 +42,7 @@ function addSeveralCandidates(){
 addSeveralCandidates()
 console.log(candidates)
 //Display the list of candidates
-
+//1
 function BubbleSort(candidates){
   for(let i = 0; i < candidates.length-1 ;i++){
     for(let j=0; j < candidates.length-1-i;j++){
@@ -57,3 +57,14 @@ function BubbleSort(candidates){
 }
 console.log(BubbleSort(candidates))
 BubbleSort(candidates)
+//2
+function pickPoliticalParty(){
+let promptPickPoliticalParty = prompt("Enter the political party you want to see:")
+for (let i = 0 ; i < candidates.length ; i++){
+  let pick = candidates[i].politicalParty
+    if ( promptPickPoliticalParty === pick ){
+      console.log(candidates[i])
+    }
+  }
+}
+pickPoliticalParty(candidates)
