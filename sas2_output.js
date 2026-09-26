@@ -1,24 +1,14 @@
 const candidates = [
-  { cin: "AB123456", lastName: "Boushaba", firstName: "Soufiane", politicalParty: "Independent", age: 40,
-    voters: [] },
-  { cin: "CD234567", lastName: "El Amrani", firstName: "Fatima Zahra", politicalParty: "PJD", age: 35,
-    voters: ["AB123456", "GH456789", "KL678901"] },
-  { cin: "EF345678", lastName: "Chraibi", firstName: "Younes", politicalParty: "RNI", age: 45,
-    voters: [] },
-  { cin: "GH456789", lastName: "Bennani", firstName: "Salma", politicalParty: "PAM", age: 29,
-    voters: [] },
-  { cin: "IJ567890", lastName: "Ouahbi", firstName: "Karim", politicalParty: "Istiqlal", age: 52,
-    voters: [] },
-  { cin: "KL678901", lastName: "Ziani", firstName: "Nadia", politicalParty: "Independent", age: 33,
-    voters: [] },
-  { cin: "MN789012", lastName: "Tazi", firstName: "Hamza", politicalParty: "USFP", age: 60,
-    voters: [] },
-  { cin: "OP890123", lastName: "Idrissi", firstName: "Meryem", politicalParty: "PJD", age: 27,
-    voters: [] },
-  { cin: "QR901234", lastName: "Berrada", firstName: "Omar", politicalParty: "RNI", age: 38,
-    voters: [] },
-  { cin: "ST012345", lastName: "Fassi", firstName: "Khadija", politicalParty: "PAM", age: 31,
-    voters: [] },
+  { cin: "AB123456", lastName: "Boushaba", firstName: "Soufiane", politicalParty: "Independent", age: 40, voters: [] },
+  { cin: "CD234567", lastName: "El Amrani", firstName: "Fatima Zahra", politicalParty: "PJD", age: 35, voters: ["AB123456", "GH456789", "KL678901"] },
+  { cin: "EF345678", lastName: "Chraibi", firstName: "Younes", politicalParty: "RNI", age: 45, voters: [] },
+  { cin: "GH456789", lastName: "Bennani", firstName: "Salma", politicalParty: "PAM", age: 29, voters: ["IJ567890", "HH001044", "PQ334180"] },
+  { cin: "IJ567890", lastName: "Ouahbi", firstName: "Karim", politicalParty: "Istiqlal", age: 52, voters: [] },
+  { cin: "KL678901", lastName: "Ziani", firstName: "Nadia", politicalParty: "Independent", age: 33, voters: [] },
+  { cin: "MN789012", lastName: "Tazi", firstName: "Hamza", politicalParty: "USFP", age: 60, voters: ["QR901234", "HH001200"] },
+  { cin: "OP890123", lastName: "Idrissi", firstName: "Meryem", politicalParty: "PJD", age: 27, voters: [] },
+  { cin: "QR901234", lastName: "Berrada", firstName: "Omar", politicalParty: "RNI", age: 38, voters: ["CD234567", "EF345678", "MN789012", "JK343400", "OP334100"] },
+  { cin: "ST012345", lastName: "Fassi", firstName: "Khadija", politicalParty: "PAM", age: 31, voters: ["HH676767"] },
 ];
 //add a candidate
 
@@ -42,7 +32,7 @@ promptAdd()
 console.log(candidates);
 //Add several candidates
 function addSeveralCandidates(){
-  let promptSeveralAdd = prompt("Enter the number of candidates you want to add: ")
+  let promptSeveralAdd = prompt("Enter the number of candidates you want to add: ");
   let i = 1
   while (i <= promptSeveralAdd){
     promptAdd()
@@ -51,3 +41,19 @@ function addSeveralCandidates(){
 }
 addSeveralCandidates()
 console.log(candidates)
+//Display the list of candidates
+
+function BubbleSort(candidates){
+  for(let i = 0; i < candidates.length-1 ;i++){
+    for(let j=0; j < candidates.length-1-i;j++){
+      if( candidates[j].voters.length < candidates[j+1].voters.length ){
+        let temp = candidates[j]
+        candidates[j] = candidates[j+1]
+        candidates[j+1] = temp
+      }
+    }
+  }
+  return candidates;
+}
+console.log(BubbleSort(candidates))
+BubbleSort(candidates)
