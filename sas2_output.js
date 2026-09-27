@@ -94,3 +94,29 @@ function voteForACandidate(){
 
 voteForACandidate()
 //console.log(candidates)
+//Edit a candidate's information 
+function editCandidatesInfos(){
+let promptPickEdit = prompt("Pick whether you want to edit a candidate's political party or age: ")
+  
+if ( promptPickEdit === "political party" ){
+  let promptFindCandidatesPoliticalParty = prompt("Enter the candidate's CIN whose political party you want to change: ")
+  for (let i = 0 ; i < candidates.length ; i++){
+    if ( promptFindCandidatesPoliticalParty === candidates[i].cin ){
+      let promptEditPoliticalParty = prompt("Enter the candidate's new political party: ")
+      candidates[i].politicalParty = promptEditPoliticalParty
+      return
+    }
+  }
+} else if (promptPickEdit === "age"){
+   let promptFindCandidatesAge = prompt("Enter the candidate's CIN whose age you want to change: ")
+  for (let i = 0 ; candidates.length ; i++){
+    if ( promptFindCandidatesAge === candidates[i].cin ){
+      let promptEditAge = prompt("Enter the candidate's new age: ")
+      candidates[i] = promptEditAge
+      return
+    }
+  }
+}
+}
+editCandidatesInfos()
+console.log(candidates)
