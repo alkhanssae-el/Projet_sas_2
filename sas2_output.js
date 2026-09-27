@@ -83,7 +83,7 @@ function voteForACandidate(){
   
   for (let i = 0; i < candidates.length; i++) {
     if (promptWhichCandidate === candidates[i].cin) {
-      candidates[i].voters.push(promptUserCin);
+      candidates[i].voters.push(promptUserCin)
       console.log("Your vote has been recorded.")
       return
     }
