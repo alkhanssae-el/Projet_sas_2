@@ -120,3 +120,25 @@ if ( promptPickEdit === "political party" ){
 }
 editCandidatesInfos()
 console.log(candidates)
+//delete a candidate
+function deleteCandidate(){
+  let promptDeleteCandidate = prompt(
+    "Enter your CIN to withdraw your candidacy: "
+  )
+    let found = false
+  for (let i = 0 ; i < candidates.length ; i++){
+    if (promptDeleteCandidate === candidates[i].cin){
+      found = true
+      candidates.splice(i, 1)
+      console.log("Your candidacy has been withdrawn.");
+      break
+    }
+  }
+  if (!found) {
+    console.log(
+      "Failed to withdraw, you were not found among the candidates for this election."
+    )
+  }
+}
+
+deleteCandidate()
