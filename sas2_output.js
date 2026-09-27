@@ -70,19 +70,27 @@ for (let i = 0 ; i < candidates.length ; i++){
 pickPoliticalParty(candidates)
 //Vote for a candidate
 function voteForACandidate(){
-let promptEligibilityCheck = prompt("Enter your cin :")
-for (let i = 0 ; i < candidates.length ; i++){
-  for (let j = 0 ; j < candidates[i].voters.length ; j++){
-    if ( promptEligibilityCheck === candidates[i].voters[j]){
+  let promptUserCin = prompt("Enter your CIN: ")
+  
+  for (let i = 0 ; i < candidates.length ; i++){
+    if (candidates[i].voters.includes(promptUserCin)){
       console.log("You have already voted and you are not allowed to change your vote or vote again.")
-    } else {
-      let promptVoteForACandidate = prompt("Enter your cin :")
+      return
     }
-    let promptWhichCandidate = prompt("Enter your candidate's cin: ")
-    
-      candidates[i].voters[j].push(promptVoteForACandidate)
-      }
   }
+  
+  let promptWhichCandidate = prompt("Enter your candidate's CIN: ")
+  
+  for (let i = 0; i < candidates.length; i++) {
+    if (promptWhichCandidate === candidates[i].cin) {
+      candidates[i].voters.push(promptUserCin);
+      console.log("Your vote has been recorded.")
+      return
+    }
+  }
+
+  console.log("Candidate not found.")
 }
-}
-voteForACandidate(candidates)
+
+voteForACandidate()
+//console.log(candidates)
