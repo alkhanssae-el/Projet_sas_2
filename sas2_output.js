@@ -244,6 +244,26 @@ for ( let i = 0 ; i < candidates.length ; i++ ){
   totalVotes += candidates[i].voters.length
 }
 console.log("Total votes cast: ", totalVotes)
+
+function showTop3Candidates(){
+  for ( let i = 0 ; i < candidates.length ; i++){
+    candidates[i].voteCount = candidates[i].voters.length
+  }
+  for (let i = 0 ; i < candidates.length ; i++){
+        for (let j = i + 1 ; j < candidates.length ; j++){
+          if (candidates[j].voteCount > candidates[i].voteCount){
+            let temp = candidates[i]
+            candidates[i] = candidates[j]
+            candidates[j] = temp
+          }
+        }
+  }
+  for (let i = 0 ; i < 3 ; i++){
+    console.log((i + 1) + ". " + candidates[i].firstName + " " + candidates[i].lastName + " - " + candidates[i].voteCount + " votes")
+  }
+}
+showTop3Candidates()
+
 }
 showStatistics()
  
