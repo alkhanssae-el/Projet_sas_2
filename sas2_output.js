@@ -264,6 +264,21 @@ function showTop3Candidates(){
 }
 showTop3Candidates()
 
+function showCandidatesPerParty(){
+  let parties = {}
+    for (let i = 0 ; i < candidates.length ; i++){
+      let party = candidates[i].politicalParty
+        if (parties[party] === undefined){
+          parties[party] = 1
+        } else {
+          parties[party]++
+        }
+    }
+  for (let party in parties){
+    console.log(party + " : " + parties[party] + " candidates")
+  }
 }
-showStatistics()
- 
+showCandidatesPerParty()
+
+}
+showStatistics() 
