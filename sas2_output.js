@@ -231,7 +231,6 @@ function searchCandidate(){
         console.log("Number of votes:", candidate.voters.length)
     })
 }
-<<<<<<< HEAD
 searchCandidate()
 //Election statistics
 function showStatistics(){
@@ -241,6 +240,3 @@ function showCandidatesNumber(){
 console.log(showCandidatesNumber())
 }
 showStatistics()
-=======
-searchCandidate()
->>>>>>> 332ebe34920e279368423bfb57a34610ef40d6a8
