@@ -238,5 +238,12 @@ function showCandidatesNumber(){
   return candidates.length;
 }
 console.log(showCandidatesNumber())
+
+let totalVotes = 0
+for ( let i = 0 ; i < candidates.length ; i++ ){
+  totalVotes += candidates[i].voters.length
+}
+console.log("Total votes cast: ", totalVotes)
 }
 showStatistics()
+ 
