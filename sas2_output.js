@@ -142,3 +142,26 @@ function deleteCandidate(){
 }
 
 deleteCandidate()
+//search for a candidate
+function searchCandidate(){
+  const lastName = prompt("Please enter the candidate's last name:")
+      
+  const foundCandidates = candidates.filter(function(candidate){
+        return candidate.lastName.toLowerCase() === lastName.toLowerCase()
+    })
+
+    if (foundCandidates.length === 0){
+        console.log("No candidate found.")
+        return
+    }
+
+    foundCandidates.forEach(function(candidate){
+        console.log("Cin:", candidate.cin)
+        console.log("Last name:", candidate.lastName)
+        console.log("First name:", candidate.firstName)
+        console.log("Political party:", candidate.politicalParty)
+        console.log("Age:", candidate.age)
+        console.log("Number of votes:", candidate.voters.length)
+    })
+}
+searchCandidate()
