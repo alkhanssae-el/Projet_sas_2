@@ -281,4 +281,4 @@ function showCandidatesPerParty(){
 showCandidatesPerParty()
 
 }
-showStatistics() 
+showStatistics()
