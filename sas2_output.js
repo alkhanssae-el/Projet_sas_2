@@ -10,14 +10,81 @@ const candidates = [
   { cin: "QR901234", lastName: "Berrada", firstName: "Omar", politicalParty: "RNI", age: 38, voters: ["CD234567", "EF345678", "MN789012", "JK343400", "OP334100"] },
   { cin: "ST012345", lastName: "Fassi", firstName: "Khadija", politicalParty: "PAM", age: 31, voters: ["HH676767"] },
 ];
-//add a candidate
 
+while (true) {
+  console.log(`
+************************************************************
+          MOROCCAN ELECTION MANAGEMENT PROGRAM
+************************************************************
+
+1. Add a new candidate
+2. Add several candidates at once
+3. Display the list of candidates
+4. Vote for a candidate
+5. Edit a candidate's information
+6. Delete a candidate
+7. Search for candidates
+8. Election statistics
+9. Exit
+`);
+
+  let ask = Number(
+    prompt("PLEASE SELECT AN OPTION FROM THE MENU (1-9): ")
+  );
+
+  switch (ask) {
+    case 1:
+      promptAdd();
+      break;
+
+    case 2:
+      addSeveralCandidates();
+      break;
+
+    case 3:
+      console.log(BubbleSort(candidates));
+      break;
+
+    case 4:
+      voteForACandidate();
+      break;
+
+    case 5:
+      editCandidatesInfos();
+      break;
+
+    case 6:
+      deleteCandidate();
+      break;
+
+    case 7:
+      searchCandidate();
+      break;
+
+    case 8:
+      showStatistics();
+      break;
+
+    case 9:
+      console.log("Thank you for using the Moroccan Election Management Program.");
+      break;
+
+    default:
+      console.log("Invalid option. Please choose a number from 1 to 9.");
+  }
+
+  if (ask === 9) {
+    break;
+  }
+}
+
+//add a candidate
 function candidateAdd(cin, lastName, firstName, politicalParty, age, voters){
 	candidates.push({cin: cin , lastName: lastName, firstName: firstName, politicalParty: politicalParty, age: age, voters: voters})
 }
 
 function promptAdd(){
-let cinData = prompt("Enter your cin: ");
+let cinData = prompt ("ur cin: ");
 let lastNameData = prompt("Enter your last name: ");
 let firstNameData = prompt("Enter your first name: ");
 let politicalPartyData = prompt("Enter your political party: ");
@@ -165,3 +232,53 @@ function searchCandidate(){
     })
 }
 searchCandidate()
+//Election statistics
+function showStatistics(){
+function showCandidatesNumber(){
+  return candidates.length;
+}
+console.log(showCandidatesNumber())
+
+let totalVotes = 0
+for ( let i = 0 ; i < candidates.length ; i++ ){
+  totalVotes += candidates[i].voters.length
+}
+console.log("Total votes cast: ", totalVotes)
+
+function showTop3Candidates(){
+  for ( let i = 0 ; i < candidates.length ; i++){
+    candidates[i].voteCount = candidates[i].voters.length
+  }
+  for (let i = 0 ; i < candidates.length ; i++){
+        for (let j = i + 1 ; j < candidates.length ; j++){
+          if (candidates[j].voteCount > candidates[i].voteCount){
+            let temp = candidates[i]
+            candidates[i] = candidates[j]
+            candidates[j] = temp
+          }
+        }
+  }
+  for (let i = 0 ; i < 3 ; i++){
+    console.log((i + 1) + ". " + candidates[i].firstName + " " + candidates[i].lastName + " - " + candidates[i].voteCount + " votes")
+  }
+}
+showTop3Candidates()
+
+function showCandidatesPerParty(){
+  let parties = {}
+    for (let i = 0 ; i < candidates.length ; i++){
+      let party = candidates[i].politicalParty
+        if (parties[party] === undefined){
+          parties[party] = 1
+        } else {
+          parties[party]++
+        }
+    }
+  for (let party in parties){
+    console.log(party + " : " + parties[party] + " candidates")
+  }
+}
+showCandidatesPerParty()
+
+}
+showStatistics() 
